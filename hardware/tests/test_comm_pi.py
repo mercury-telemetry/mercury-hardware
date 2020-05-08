@@ -88,5 +88,6 @@ class CommPiTests(unittest.TestCase):
             mock_transceiver.return_value.send.assert_not_called()
             mock_client.return_value.send.assert_called_with(payload)
 
+
 if __name__ == "__main__":
     unittest.main()

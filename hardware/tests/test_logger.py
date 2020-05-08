@@ -124,5 +124,6 @@ class LoggerTests(unittest.TestCase):
 
                 capture.check(("test_logger", "WARNING", "test message"))
 
+
 if __name__ == "__main__":
     unittest.main()

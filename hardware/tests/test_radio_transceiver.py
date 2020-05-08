@@ -734,5 +734,6 @@ class TransceiverTests(unittest.TestCase):
                     ("LOG_FILE", "ERROR", "error occurred: ex"),
                 )
 
+
 if __name__ == "__main__":
     unittest.main()
