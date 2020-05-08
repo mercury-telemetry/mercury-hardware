@@ -63,5 +63,6 @@ class UtilsTests(unittest.TestCase):
     def test_get_sensor_keys(self):
         self.assertDictEqual(get_sensor_keys(), UtilsTests.SENSOR_KEYS)
 
+
 if __name__ == "__main__":
     unittest.main()

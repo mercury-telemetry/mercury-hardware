@@ -206,5 +206,6 @@ class WebClientTests(unittest.TestCase):
                     ("WEB_CLIENT_LOG_FILE", "ERROR", "error occurred: Exception"),
                 )
 
+
 if __name__ == "__main__":
     unittest.main()

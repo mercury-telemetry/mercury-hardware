@@ -560,5 +560,6 @@ class SensePiTests(unittest.TestCase):
 
             self.assertDictEqual(expected_data, data)
 
+
 if __name__ == "__main__":
     unittest.main()

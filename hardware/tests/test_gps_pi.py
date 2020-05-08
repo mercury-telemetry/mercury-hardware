@@ -245,5 +245,6 @@ class GPSPiTests(unittest.TestCase):
 
             self.assertEqual(expected_data, data)
 
+
 if __name__ == "__main__":
     unittest.main()
