@@ -1,6 +1,6 @@
-from django.test import SimpleTestCase
-
+import unittest
 from unittest import mock
+
 from testfixtures import TempDirectory
 from logging import INFO
 import os
@@ -16,7 +16,7 @@ from hardware.Utils.utils import (
 from hardware.Utils.logger import Logger
 
 
-class UtilsTests(SimpleTestCase):
+class UtilsTests(unittest.TestCase):
 
     SENSOR_KEYS = {
         "ALL": "all",
@@ -62,3 +62,7 @@ class UtilsTests(SimpleTestCase):
 
     def test_get_sensor_keys(self):
         self.assertDictEqual(get_sensor_keys(), UtilsTests.SENSOR_KEYS)
+
+
+if __name__ == "__main__":
+    unittest.main()

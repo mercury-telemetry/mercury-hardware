@@ -1,4 +1,4 @@
-from django.test import SimpleTestCase
+import unittest
 from testfixtures import TempDirectory, LogCapture
 
 from logging import INFO, ERROR, DEBUG
@@ -8,7 +8,7 @@ import os
 from hardware.Utils.logger import Logger
 
 
-class LoggerTests(SimpleTestCase):
+class LoggerTests(unittest.TestCase):
     def setUp(self):
         self.temp_dir = TempDirectory()
 
@@ -123,3 +123,7 @@ class LoggerTests(SimpleTestCase):
                 mylogger.warn("test message")
 
                 capture.check(("test_logger", "WARNING", "test message"))
+
+
+if __name__ == "__main__":
+    unittest.main()
