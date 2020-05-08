@@ -1,4 +1,4 @@
-from django.test import SimpleTestCase
+import unittest
 from unittest.mock import patch, MagicMock
 from testfixtures import TempDirectory
 
@@ -15,7 +15,7 @@ from hardware.Utils.logger import Logger  # noqa : E402
 
 
 @patch("hardware.SensorPi.sense_pi.SenseHat")
-class SensePiTests(SimpleTestCase):
+class SensePiTests(unittest.TestCase):
     def setUp(self):
         self.temp_dir = TempDirectory()
 
@@ -559,3 +559,6 @@ class SensePiTests(SimpleTestCase):
             }
 
             self.assertDictEqual(expected_data, data)
+
+if __name__ == "__main__":
+    unittest.main()
