@@ -1,4 +1,4 @@
-from django.test import SimpleTestCase
+import unittest
 from http.server import HTTPServer
 from testfixtures import LogCapture, TempDirectory
 
@@ -20,7 +20,7 @@ def get_free_port():
     return port
 
 
-class LanServerTests(SimpleTestCase):
+class LanServerTests(unittest.TestCase):
     def setUp(self):
         self.temp_dir = TempDirectory()
         self.mock_server_port = get_free_port()
@@ -123,7 +123,7 @@ class LanServerTests(SimpleTestCase):
                 )
 
 
-class RunServerTests(SimpleTestCase):
+class RunServerTests(unittest.TestCase):
     def setUp(self):
         self.temp_dir = TempDirectory()
 
@@ -168,3 +168,6 @@ class RunServerTests(SimpleTestCase):
 
 #                 capture.check(('LAN_SERVER_LOG_FILE', 'INFO', 'Starting server on port: 0'),
 #  ('LAN_SERVER_LOG_FILE', 'INFO', 'Stopping\n'))
+
+if __name__ == "__main__":
+    unittest.main()
