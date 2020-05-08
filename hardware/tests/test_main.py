@@ -1,4 +1,4 @@
-from django.test import SimpleTestCase
+import unittest
 from unittest.mock import patch, MagicMock, call
 
 from testfixtures import TempDirectory
@@ -20,7 +20,7 @@ from hardware.CommunicationsPi.comm_pi import CommPi  # noqa : E402
 @patch("hardware.main.WebClient")
 @patch("hardware.main.SensePi")
 @patch("hardware.main.GPSReader")
-class HardwareTests(SimpleTestCase):
+class HardwareTests(unittest.TestCase):
     def setUp(self):
         self.temp_dir = TempDirectory()
 
