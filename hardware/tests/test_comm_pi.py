@@ -1,10 +1,9 @@
-from django.test import SimpleTestCase
+import unittest
+from unittest import mock
+from unittest.mock import patch
 import os
 import json
 from http.server import HTTPServer
-
-from unittest import mock
-from unittest.mock import patch
 
 import threading
 import socket
@@ -21,7 +20,7 @@ def get_free_port():
     return address, port
 
 
-class CommPiTests(SimpleTestCase):
+class CommPiTests(unittest.TestCase):
     def setUp(self):
         self.mock_server_url, self.mock_server_port = get_free_port()
         self.mock_server = HTTPServer(
@@ -88,3 +87,6 @@ class CommPiTests(SimpleTestCase):
             requests.post(url, json=payload)
             mock_transceiver.return_value.send.assert_not_called()
             mock_client.return_value.send.assert_called_with(payload)
+
+if __name__ == "__main__":
+    unittest.main()
