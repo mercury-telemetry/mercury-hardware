@@ -4,6 +4,7 @@ from unittest.mock import patch
 import os
 import json
 from http.server import HTTPServer
+from testfixtures import TempDirectory
 
 import threading
 import socket
@@ -31,12 +32,16 @@ class CommPiTests(unittest.TestCase):
         )
         self.mock_server_thread.setDaemon(True)
         self.mock_server_thread.start()
+        self.temp_dir = TempDirectory()
+
+    def tearDown(self):
+        self.temp_dir.cleanup()
 
     @mock.patch("hardware.CommunicationsPi.comm_pi.WebClient")
     @mock.patch("hardware.CommunicationsPi.comm_pi.Transceiver")
     def test_get(self, mock_transceiver=mock.MagicMock(), mock_client=mock.MagicMock()):
         with patch.dict(
-            os.environ, {"COMM_PI_LOG_FILE": "comm.log", "LOG_DIRECTORY": "logs"}
+            os.environ, {"COMM_PI_LOG_FILE": "comm.log", "LOG_DIRECTORY": self.temp_dir.path}
         ):
             url = f"http://{self.mock_server_url}:{self.mock_server_port}/"
             response = requests.get(url)
@@ -54,7 +59,7 @@ class CommPiTests(unittest.TestCase):
             {
                 "ENABLE_RADIO_TRANSMISSION": "True",
                 "COMM_PI_LOG_FILE": "comm.log",
-                "LOG_DIRECTORY": "logs",
+                "LOG_DIRECTORY": self.temp_dir.path,
             },
         ):
             payload = '{"key": "value"}'
@@ -75,7 +80,7 @@ class CommPiTests(unittest.TestCase):
             {
                 "ENABLE_INTERNET_TRANSMISSION": "True",
                 "COMM_PI_LOG_FILE": "comm.log",
-                "LOG_DIRECTORY": "logs",
+                "LOG_DIRECTORY": self.temp_dir.path,
                 "ENABLE_RADIO_TRANSMISSION": "",
             },
         ):
