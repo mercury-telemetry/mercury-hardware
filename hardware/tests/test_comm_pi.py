@@ -41,7 +41,8 @@ class CommPiTests(unittest.TestCase):
     @mock.patch("hardware.CommunicationsPi.comm_pi.Transceiver")
     def test_get(self, mock_transceiver=mock.MagicMock(), mock_client=mock.MagicMock()):
         with patch.dict(
-            os.environ, {"COMM_PI_LOG_FILE": "comm.log", "LOG_DIRECTORY": self.temp_dir.path}
+            os.environ,
+            {"COMM_PI_LOG_FILE": "comm.log", "LOG_DIRECTORY": self.temp_dir.path},
         ):
             url = f"http://{self.mock_server_url}:{self.mock_server_port}/"
             response = requests.get(url)
