@@ -36,7 +36,7 @@ jobs:
         - pip3 install -r requirements.txt
         - pip3 install -r test-requirements.txt
       
-        script:
+      script:
         - black --check --diff .
         - flake8 . # modify .flake8 env file to update flake8 configuration
         - coverage run -m unittest discvoer # modify .coveragerc env file to update test configuration
