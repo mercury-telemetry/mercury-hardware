@@ -6,9 +6,4 @@ omit =
     */tests/*
     hardware/setup/*
 source =
-    mysite
-    mercury
     hardware
-    ag_data
-    hardware/CommunicationsPi
-    hardware/SensorPi
