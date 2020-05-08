@@ -1,4 +1,4 @@
-from django.test import SimpleTestCase
+import unittest
 from testfixtures import TempDirectory, LogCapture
 from json.decoder import JSONDecodeError
 
@@ -14,7 +14,7 @@ from hardware.Utils.logger import Logger
 from hardware.Utils.utils import get_serial_stream
 
 
-class TransceiverTests(SimpleTestCase):
+class TransceiverTests(unittest.TestCase):
     def setUp(self):
         self.temp_dir = TempDirectory()
 
@@ -733,3 +733,6 @@ class TransceiverTests(SimpleTestCase):
                     ("LOG_FILE", "INFO", "Opening serial on: usb"),
                     ("LOG_FILE", "ERROR", "error occurred: ex"),
                 )
+
+if __name__ == "__main__":
+    unittest.main()
