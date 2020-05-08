@@ -39,7 +39,7 @@ jobs:
       script:
         - black --check --diff .
         - flake8 . # modify .flake8 env file to update flake8 configuration
-        - coverage run -m unittest discvoer # modify .coveragerc env file to update test configuration
+        - coverage run -m unittest discover # modify .coveragerc env file to update test configuration
       
       after_script:
         - coveralls
