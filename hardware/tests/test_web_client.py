@@ -1,4 +1,4 @@
-from django.test import SimpleTestCase
+import unittest
 from unittest.mock import patch, MagicMock
 from testfixtures import TempDirectory, LogCapture
 from requests.exceptions import HTTPError
@@ -10,7 +10,7 @@ from hardware.CommunicationsPi.web_client import WebClient
 from hardware.Utils.logger import Logger
 
 
-class WebClientTests(SimpleTestCase):
+class WebClientTests(unittest.TestCase):
     def setUp(self):
         self.temp_dir = TempDirectory()
 
@@ -205,3 +205,7 @@ class WebClientTests(SimpleTestCase):
                     ("WEB_CLIENT_LOG_FILE", "INFO", f"data: { payload }"),
                     ("WEB_CLIENT_LOG_FILE", "ERROR", "error occurred: Exception"),
                 )
+
+
+if __name__ == "__main__":
+    unittest.main()

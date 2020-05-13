@@ -1,4 +1,4 @@
-from django.test import SimpleTestCase
+import unittest
 from unittest.mock import patch
 from testfixtures import TempDirectory
 
@@ -9,7 +9,7 @@ from hardware.gpsPi.gps_reader import GPSReader
 
 
 @patch("serial.Serial")
-class GPSPiTests(SimpleTestCase):
+class GPSPiTests(unittest.TestCase):
     def setUp(self):
         self.temp_dir = TempDirectory()
 
@@ -244,3 +244,7 @@ class GPSPiTests(SimpleTestCase):
             mock_port.return_value.readline.assert_called()
 
             self.assertEqual(expected_data, data)
+
+
+if __name__ == "__main__":
+    unittest.main()
