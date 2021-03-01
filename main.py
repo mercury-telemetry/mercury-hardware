@@ -6,9 +6,10 @@ from dotenv import load_dotenv
 from hardware.Utils.logger import Logger
 
 PI_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-dotenv_file = os.path.join(PI_DIR, "hardware/env")
+#dotenv_file = os.path.join(PI_DIR, "hardware/env")
+dotenv_file = "hardware/env"
 if os.path.isfile(dotenv_file):  # pragma: no cover
-    load_dotenv(dotenv_path=dotenv_file)
+    load_dotenv(dotenv_path=dotenv_file, verbose=True)
 else:  # pragma: no cover
     print("dotenv_file was not a file")
 
@@ -22,19 +23,19 @@ from hardware.gpsPi.gps_reader import GPSReader  # noqa: E402
 
 
 def main():
-    logger = Logger(name="main.log", filename="main.log")
-    logger.info("Started hardware main.py")
+    #logger = Logger(name="main.log", filename="main.log")
+    #logger.info("Started hardware main.py")
     if os.environ["HARDWARE_TYPE"] == "commPi":
-        logger.info("CommunicationsPi")
+        #logger.info("CommunicationsPi")
         handleComm()
     elif os.environ["HARDWARE_TYPE"] == "sensePi":
-        logger.info("SensePi")
+        #logger.info("SensePi")
         handleSense()
     elif os.environ["HARDWARE_TYPE"] == "gpsPi":
-        logger.info("gpsPi")
+        #logger.info("gpsPi")
         handleGps()
     else:
-        logger.info("Local Django Server")
+        #logger.info("Local Django Server")
         handleLocal()
 
 

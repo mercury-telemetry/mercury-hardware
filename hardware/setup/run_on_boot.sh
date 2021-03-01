@@ -18,10 +18,10 @@ else
   append_to_file ")"
 fi
 
-sudo python3 -m pip install -r hardware/pi_requirements.txt
+sudo python3 -m pip install -r requirements.txt
 sudo sudo systemctl status rc-local
 sudo systemctl daemon-reload
 
 echo "\n\n"
 echo "Note: If you see the following error, reboot the raspbebrry pi and then retry again"
-echo "\"Failed to start /etc/rc.local Compatibility\"
+echo "\Failed to start /etc/rc.local Compatibility\"
