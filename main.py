@@ -55,11 +55,11 @@ def handleSense():
     """
     sensor_keys = get_sensor_keys()
     sensor_ids = {}
-    sensor_ids[sensor_keys["TEMPERATURE"]] = 2
-    sensor_ids[sensor_keys["PRESSURE"]] = 3
-    sensor_ids[sensor_keys["HUMIDITY"]] = 4
-    sensor_ids[sensor_keys["ACCELERATION"]] = 5
-    sensor_ids[sensor_keys["ORIENTATION"]] = 6
+    sensor_ids[sensor_keys["TEMPERATURE"]] = 1      # 1 variable
+    sensor_ids[sensor_keys["PRESSURE"]] = 2         # 1 variable
+    sensor_ids[sensor_keys["HUMIDITY"]] = 3         # 1 variable
+    sensor_ids[sensor_keys["ACCELERATION"]] = 4     # 3 variables
+    sensor_ids[sensor_keys["ORIENTATION"]] = 5      # 3 variables
     sensePi = SensePi(sensor_ids=sensor_ids)
 
     client = WebClient()
