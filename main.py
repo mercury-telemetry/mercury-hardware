@@ -71,9 +71,9 @@ def handleSense():
         hum = sensePi.get_humidity()
         acc = sensePi.get_acceleration()
         orie = sensePi.get_orientation()
-        all = sensePi.get_all()
+        # all = sensePi.get_all()
 
-        dataArr = [temp, pres, hum, acc, orie, all]
+        dataArr = [temp, pres, hum, acc, orie]
 
         for payload in dataArr:
             payload = json.dumps(payload)
