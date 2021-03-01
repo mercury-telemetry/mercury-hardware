@@ -59,8 +59,8 @@ class SensePi:
                 id = self.sensor_ids[key]
                 data["sensor_id"] = id
                 data["values"] = {}
-                print("type for {}: {}".format(key, type(sensor_data[key]))
-                if type(sensor_data[key]) == dict: # more than one field
+                # print("type for {}: {}".format(key, sensor_data[key], type(sensor_data[key]))
+                if isinstance(sensor_data[key], dict):
                     data["values"] = sensor_data[key]
                 else: # only one field
                     data["values"][key] = sensor_data[key]
