@@ -22,7 +22,7 @@ class WebClient:
         port = os.environ["LAN_PORT"]
 
         url = "{}://{}".format(protocol, ip)
-        url += ":{}".format(port) if port else ""
+        # url += ":{}".format(port) if port else ""
 
         return url
 
