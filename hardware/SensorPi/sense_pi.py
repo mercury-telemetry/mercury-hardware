@@ -7,15 +7,11 @@ from hardware.Utils.utils import (
 
 # Conditional import for sense hat and emulator
 try:
-    print(os.environ.get("EMULATE_SENSE_HAT"))
     if not bool(os.environ.get("EMULATE_SENSE_HAT")):
-        print("Real Sense")
         from sense_hat import SenseHat
     else:
-        print("emulate")
         raise ImportError("Import emulator")
 except ImportError:
-    print("Emu Sense")
     from sense_emu import SenseHat
 
 sensor_keys = get_sensor_keys()
