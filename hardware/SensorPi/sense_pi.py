@@ -11,6 +11,7 @@ try:
         print("Real Sense")
         from sense_hat import SenseHat
     else:
+        print("emulate")
         raise ImportError("Import emulator")
 except ImportError:
     print("Emu Sense")
